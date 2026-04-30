@@ -4,7 +4,6 @@ import './CSSCameraBackground.css';
 const CSSCameraBackground = ({ colorGrade = 'teal-orange' }) => {
   const videoRef = useRef(null);
   const [hasCamera, setHasCamera] = useState(null);
-  const [gradientAngle, setGradientAngle] = useState(0);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -39,15 +38,6 @@ const CSSCameraBackground = ({ colorGrade = 'teal-orange' }) => {
     };
   }, []);
 
-  useEffect(() => {
-    if (hasCamera === false) {
-      const interval = setInterval(() => {
-        setGradientAngle((prev) => (prev + 0.5) % 360);
-      }, 50);
-      return () => clearInterval(interval);
-    }
-  }, [hasCamera]);
-
   return (
     <div className="camera-bg-container">
       <video
@@ -64,14 +54,11 @@ const CSSCameraBackground = ({ colorGrade = 'teal-orange' }) => {
         </>
       )}
       {(hasCamera === false || hasCamera === null) && (
-        <div
-          className="fallback-background"
-          style={{
-            background: `linear-gradient(${gradientAngle}deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe)`,
-            backgroundSize: '400% 400%',
-            animation: 'gradientShift 15s ease infinite',
-          }}
-        />
+        <>
+          <div className="fallback-image" />
+          <div className={`camera-color-grade ${colorGrade}`} />
+          <div className="camera-blur-overlay" />
+        </>
       )}
     </div>
   );
