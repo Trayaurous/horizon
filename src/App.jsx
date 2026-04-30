@@ -5,10 +5,10 @@ import SettingsPanel from './components/SettingsPanel';
 import './App.css';
 
 const DEFAULT_LINKS = [
-  { id: '1', name: 'Google', url: 'https://google.com', iconType: 'globe' },
-  { id: '2', name: 'YouTube', url: 'https://youtube.com', iconType: 'play' },
+  { id: '1', name: 'TaoBao', url: 'https://www.taobao.com', iconType: 'shop' },
+  { id: '2', name: 'bilibili', url: 'https://www.bilibili.com', iconType: 'play' },
   { id: '3', name: 'GitHub', url: 'https://github.com', iconType: 'folder' },
-  { id: '4', name: 'Twitter', url: 'https://twitter.com', iconType: 'chat' },
+  { id: '4', name: 'Deepseek', url: 'https://chat.deepseek.com', iconType: 'chat' },
 ];
 
 function App() {
