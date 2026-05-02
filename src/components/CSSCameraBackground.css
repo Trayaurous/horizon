@@ -21,6 +21,10 @@
   opacity: 1;
 }
 
+.camera-video-base.mirrored {
+  transform: scaleX(-1);
+}
+
 .camera-color-grade {
   position: absolute;
   top: 0;

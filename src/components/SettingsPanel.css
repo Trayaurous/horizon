@@ -50,7 +50,8 @@
   gap: 8px;
 }
 
-.fullscreen-btn {
+.fullscreen-btn,
+.mirror-btn {
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.7);
@@ -60,8 +61,14 @@
   transition: background 0.2s;
 }
 
-.fullscreen-btn:hover {
+.fullscreen-btn:hover,
+.mirror-btn:hover {
   background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.mirror-btn.active {
+  background: rgba(100, 120, 255, 0.4);
   color: white;
 }
 

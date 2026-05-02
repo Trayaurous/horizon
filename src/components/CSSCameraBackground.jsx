@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './CSSCameraBackground.css';
 
-const CSSCameraBackground = ({ colorGrade = 'teal-orange' }) => {
+const CSSCameraBackground = ({ colorGrade = 'teal-orange', mirrored = false }) => {
   const videoRef = useRef(null);
   const [hasCamera, setHasCamera] = useState(null);
 
@@ -42,7 +42,7 @@ const CSSCameraBackground = ({ colorGrade = 'teal-orange' }) => {
     <div className="camera-bg-container">
       <video
         ref={videoRef}
-        className={`camera-video-base ${hasCamera === true ? 'visible' : ''}`}
+        className={`camera-video-base ${hasCamera === true ? 'visible' : ''} ${mirrored ? 'mirrored' : ''}`}
         autoPlay
         playsInline
         muted

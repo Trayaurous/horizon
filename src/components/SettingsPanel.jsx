@@ -9,7 +9,7 @@ const FILTER_OPTIONS = [
   { id: 'none', name: '无滤镜' },
 ];
 
-const SettingsPanel = ({ links, setLinks, colorGrade, setColorGrade, onClose }) => {
+const SettingsPanel = ({ links, setLinks, colorGrade, setColorGrade, mirrored, setMirrored, onClose }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
@@ -71,6 +71,11 @@ const SettingsPanel = ({ links, setLinks, colorGrade, setColorGrade, onClose }) 
         <div className="settings-header">
           <h2>管理链接</h2>
           <div className="header-actions">
+            <button className={`mirror-btn ${mirrored ? 'active' : ''}`} onClick={() => setMirrored(!mirrored)} title={mirrored ? '关闭镜像' : '镜像画面'}>
+              <svg viewBox="0 0 24 24" width="20" height="20">
+                <path d="M12 3v18M8 7l-4 5 4 5M16 7l4 5-4 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+            </button>
             <button className="fullscreen-btn" onClick={toggleFullscreen} title={isFullscreen ? '退出全屏' : '全屏显示'}>
               {isFullscreen ? (
                 <svg viewBox="0 0 24 24" width="20" height="20">

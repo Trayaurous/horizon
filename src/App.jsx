@@ -18,6 +18,9 @@ function App() {
   const [colorGrade, setColorGrade] = useState(() => {
     return localStorage.getItem('color-grade') || 'teal-orange';
   });
+  const [mirrored, setMirrored] = useState(() => {
+    return localStorage.getItem('camera-mirrored') === 'true';
+  });
 
   useEffect(() => {
     const saved = localStorage.getItem('dock-links');
@@ -43,6 +46,10 @@ function App() {
   }, [colorGrade]);
 
   useEffect(() => {
+    localStorage.setItem('camera-mirrored', String(mirrored));
+  }, [mirrored]);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
@@ -55,7 +62,7 @@ function App() {
 
   return (
     <div className="app">
-      <CSSCameraBackground colorGrade={colorGrade} />
+      <CSSCameraBackground colorGrade={colorGrade} mirrored={mirrored} />
 
       <div className="top-content">
         <div className="clock-widget">
@@ -80,6 +87,8 @@ function App() {
           setLinks={setLinks}
           colorGrade={colorGrade}
           setColorGrade={setColorGrade}
+          mirrored={mirrored}
+          setMirrored={setMirrored}
           onClose={() => setIsSettingsOpen(false)}
         />
       )}
